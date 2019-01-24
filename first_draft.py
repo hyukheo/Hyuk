@@ -1,4 +1,6 @@
-from tkinter import *
+#-*- coding: utf-8 -*-
+
+from Tkinter import *
 
 root=Tk()
 root.geometry("1440x810+100+100")
@@ -11,7 +13,7 @@ def click_startb():
        root.destroy()
        
 
-startb=Button(root,text="시작하기", command=click_startb,width=5)
+startb=Button(root,text="start", command=click_startb,width=5)
 startb.pack(side="right", padx=10, pady=10)
 
 
@@ -21,7 +23,7 @@ label1.pack()
 root.mainloop()
 
 window=Tk()
-window.title("중요하다고 생각하는 순서대로 선택하세요")
+window.title("Choose most important number")
 window.geometry("1440x810+100+100")
 window.resizable(False,False)
 
@@ -63,31 +65,28 @@ def click_button5():
 def click_pass():
     window.destroy()
  
-
-
-    
-       
+   
 xPos, yPos = 0, 0
 
-label1=Label(window, text="중요하다고 생각하는 순서대로 클릭하세요", font=("돋움체",30), fg="black",anchor=N)
+label1=Label(window, text="Choose most important number", fg="black",anchor=N)
 label1.pack()
 
-b1=Button(window, text="장타", width=25, command=click_button1,height=10)
+b1=Button(window, text="1", width=25, command=click_button1,height=10)
 b1.place(x=20, y=300)
 
-b2=Button(window,text="출루",width=25, command=click_button2, height=10)
+b2=Button(window,text="2",width=25, command=click_button2, height=10)
 b2.place(x=320, y=300)
 
-b3=Button(window,text="투수",width=25, command=click_button3, height=10)
+b3=Button(window,text="3",width=25, command=click_button3, height=10) 
 b3.place(x=620, y=300)
 
-b4=Button(window,text="주루",width=25, command=click_button4, height=10)
+b4=Button(window,text="4",width=25, command=click_button4, height=10) 
 b4.place(x=920, y=300)
 
-b5=Button(window,text="수비", width=25,command=click_button5, height=10)
+b5=Button(window,text="5", width=25,command=click_button5, height=10)
 b5.place(x=1220, y=300)
 
-bpass=Button(window, text="넘어가기 =>", width=25, command=click_pass, height=10)
+bpass=Button(window, text="6 =>", width=25, command=click_pass, height=10)
 bpass.place(x=620, y=550)
 
 
@@ -105,34 +104,35 @@ KT1=np.array([33,11,22,22,44])
 
 for i in range(5):
        newSK1=SK1*(51-(10*(ranking[i]-1)))
-       new두산1=Doosan1*(51-(10*(ranking[i]-1)))
-       new한화1=Hanhwa1*(51-(10*(ranking[i]-1)))
-       new넥센1=Nexen1*(51-(10*(ranking[i]-1)))
-       new기아1=Kia1*(51-(10*(ranking[i]-1)))
-       new롯데1=Lotte1*(51-(10*(ranking[i]-1)))
-       newLG1=LG1*(51-(10*(ranking[i]-1)))  #예를 들어 SK=[1,1,1,1,1,1] 이고 선호하는 보기 순서가 654321이라면 new_SK=[1,11,21,31,41,51]로 저장됨.
-       new삼성1=Samsung1*(51-(10*(ranking[i]-1)))
+       newDoosan1=Doosan1*(51-(10*(ranking[i]-1)))
+       newHanhwa1=Hanhwa1*(51-(10*(ranking[i]-1)))
+       newNexen1=Nexen1*(51-(10*(ranking[i]-1)))
+       newKia1=Kia1*(51-(10*(ranking[i]-1)))
+       newLotte1=Lotte1*(51-(10*(ranking[i]-1)))
+       newLG1=LG1*(51-(10*(ranking[i]-1))) 
+       newSamsung1=Samsung1*(51-(10*(ranking[i]-1)))
        newNC1=NC1*(51-(10*(ranking[i]-1)))
        newKT1=KT1*(51-(10*(ranking[i]-1)))
 
 
 asdf=Tk()
-asdf.title('당신의 주변 지역을 선택하세요')
+asdf.title('Choose your neighbor')
 asdf.geometry('1440x810+100+100')
 asdf.resizable(False,False)
 
 
 j=1
-SK=sum(newSK1)#4.새로운 변수 SK1,두산1,..을 만들고, 왼쪽 함수를 계산하면 어레이의 모든 값을 다 더하는 거야. 그리고, 새로운 리스트   ( 결과=[SK,두산,...KT]을 만들고,) 결과 변수에서 가장 큰 값을 출력. 이러면 됨. 가장 큰 값 출력하는 법은 물어보자. 
-Doosan=sum(new두산1)
-Hanhwa=sum(new한화1)
-Nexen=sum(new넥센1)
-Kia=sum(new기아1)
+SK=sum(newSK1)
+
+Doosan=sum(newDoosan1)
+Hanhwa=sum(newHanhwa1)
+Nexen=sum(newNexen1)
+Kia=sum(newKia1)
 LG=sum(newLG1)
-Lotte=sum(new롯데1)
+Lotte=sum(newLotte1)
 NC=sum(newNC1)
 KT=sum(newKT1)
-Samsung=sum(new삼성1)
+Samsung=sum(newSamsung1)
 
 def click_button01():
     global j
@@ -232,7 +232,6 @@ b08.pack(side='left',padx=88, pady=200)
 List=[SK,Doosan,Hanhwa,Nexen,Kia,LG,Lotte,NC,KT,Samsung]
 name_List=['SK','두산','한화','넥센','기아','LG','롯데','NC','KT','삼성']
 number=max(List)
-print(List)
 if number == List[0]:
    answer=name_List[0]
 elif number == List[1]:
@@ -274,8 +273,8 @@ cheer=Tk()
 cheer.geometry('1440x810+100+100')
 cheer.resizable(False,False)
 
-Cheer_List=["넥센 치어리더.png","한화 치어리더.png","LG 치어리더.png","NC 치어리더.png","SK 치어리더.png","KT 치어리더.png",\
-            "삼성 치어리더.png","롯데 치어리더.png","두산 치어리더.png","기아 치어리더.png"]
+Cheer_List=["nexen.png","hanhwa.png","lg.png","nc.png","sk.png","kt.png",\
+            "samsung.png","lotte.png","doosan.png","kia.png"]
 
 PhotoList=[None]*10
 for k in range(0,9):
