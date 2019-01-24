@@ -155,58 +155,58 @@ def click_button01():
     global LG
     global Nexen
     j+=1
+    calculation()
     Doosan+=165
     LG+=165
     Nexen+=165
-    calculation()
     if j==2:
        asdf.destroy()
 def click_button02():
     global j
     global Lotte
     j+=1
-    Lotte+=165
     calculation()
+    Lotte+=165
     if j==2:
        asdf.destroy()
 def click_button03():
     global j
     global Samsung
     j+=1
-    Samsung+=165
     calculation()
+    Samsung+=165
     if j==2:
        asdf.destroy()
 def click_button04():
     global j
     global Hanhwa
     j+=1
-    Hanhwa+=165
     calculation()
+    Hanhwa+=165
     if j==2:
        asdf.destroy()
 def click_button05():
     global j
     global SK
     j+=1
-    SK+=165
     calculation()
+    SK+=165
     if j==2:
        asdf.destroy()
 def click_button06():
     global j
     global KT
     j+=1
-    KT+=165
     calculation()
+    KT+=165
     if j==2:
        asdf.destroy()
 def click_button07():
     global j
     global Kia
     j+=1
-    Kia+=165
     calculation()
+    Kia+=165
     if j==2:
        asdf.destroy()
 
@@ -214,8 +214,8 @@ def click_button08():
     global j
     global NC
     j+=1
-    NC+=165
     calculation()
+    NC+=165
     if j==2:
        asdf.destroy()
 
