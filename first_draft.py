@@ -4,11 +4,11 @@ from Tkinter import *
 
 root=Tk()
 root.geometry("1440x810+100+100")
-root.resizable(False,False)
+root.resizable(True,True)
 
-photo=PhotoImage(file="design.png")
-label1=Label(root, image=photo)
-
+# photo=PhotoImage(file="design.png")
+# label1=Label(root, image=photo)
+label1=Label(root)
 def click_startb():
        root.destroy()
        
@@ -25,11 +25,37 @@ root.mainloop()
 window=Tk()
 window.title("Choose most important number")
 window.geometry("1440x810+100+100")
-window.resizable(False,False)
+window.resizable(True,True)
+
+
+
+import numpy as np
+SK1=np.array([55,44,55,44,11])
+Doosan1=np.array([55,55,44,33,55])
+Hanhwa1=np.array([11,22,55,55,33])
+Nexen1=np.array([33,33,44,44,22])
+Kia1=np.array([44,55,11,33,44])
+Lotte1=np.array([44,44,22,11,11])
+LG1=np.array([22,22,33,11,33])
+Samsung1=np.array([22,33,33,55,55])
+NC1=np.array([11,11,11,22,22])
+KT1=np.array([33,11,22,22,44])
+
 
 
 ranking=[0,0,0,0,0]
 i=1
+
+newSK1 = [0, 0, 0, 0, 0]
+newDoosan1 = [0, 0, 0, 0, 0]
+newHanhwa1 = [0, 0, 0, 0, 0]
+newNexen1 = [0, 0, 0, 0, 0]
+newKia1 = [0, 0, 0, 0, 0]
+newLotte1 = [0, 0, 0, 0, 0]
+newLG1 = [0, 0, 0, 0, 0]
+newSamsung1 = [0, 0, 0, 0, 0]
+newNC1 = [0, 0, 0, 0, 0]
+newKT1 = [0, 0, 0, 0, 0]
 
 def click_button1():
     global i
@@ -63,8 +89,20 @@ def click_button5():
     b5.destroy()
     
 def click_pass():
+    for i in range(5):
+        newSK1=SK1*(51-(10*(ranking[i]-1)))
+        newDoosan1=Doosan1*(51-(10*(ranking[i]-1)))
+        newHanhwa1=Hanhwa1*(51-(10*(ranking[i]-1)))
+        newNexen1=Nexen1*(51-(10*(ranking[i]-1)))
+        newKia1=Kia1*(51-(10*(ranking[i]-1)))
+        newLotte1=Lotte1*(51-(10*(ranking[i]-1)))
+        newLG1=LG1*(51-(10*(ranking[i]-1))) 
+        newSamsung1=Samsung1*(51-(10*(ranking[i]-1)))
+        newNC1=NC1*(51-(10*(ranking[i]-1)))
+        newKT1=KT1*(51-(10*(ranking[i]-1)))
+
     window.destroy()
- 
+
    
 xPos, yPos = 0, 0
 
@@ -90,31 +128,6 @@ bpass=Button(window, text="6 =>", width=25, command=click_pass, height=10)
 bpass.place(x=620, y=550)
 
 
-import numpy as np
-SK1=np.array([55,44,55,44,11])
-Doosan1=np.array([55,55,44,33,55])
-Hanhwa1=np.array([11,22,55,55,33])
-Nexen1=np.array([33,33,44,44,22])
-Kia1=np.array([44,55,11,33,44])
-Lotte1=np.array([44,44,22,11,11])
-LG1=np.array([22,22,33,11,33])
-Samsung1=np.array([22,33,33,55,55])
-NC1=np.array([11,11,11,22,22])
-KT1=np.array([33,11,22,22,44])
-
-for i in range(5):
-       newSK1=SK1*(51-(10*(ranking[i]-1)))
-       newDoosan1=Doosan1*(51-(10*(ranking[i]-1)))
-       newHanhwa1=Hanhwa1*(51-(10*(ranking[i]-1)))
-       newNexen1=Nexen1*(51-(10*(ranking[i]-1)))
-       newKia1=Kia1*(51-(10*(ranking[i]-1)))
-       newLotte1=Lotte1*(51-(10*(ranking[i]-1)))
-       newLG1=LG1*(51-(10*(ranking[i]-1))) 
-       newSamsung1=Samsung1*(51-(10*(ranking[i]-1)))
-       newNC1=NC1*(51-(10*(ranking[i]-1)))
-       newKT1=KT1*(51-(10*(ranking[i]-1)))
-
-
 asdf=Tk()
 asdf.title('Choose your neighbor')
 asdf.geometry('1440x810+100+100')
@@ -122,17 +135,19 @@ asdf.resizable(False,False)
 
 
 j=1
-SK=sum(newSK1)
 
-Doosan=sum(newDoosan1)
-Hanhwa=sum(newHanhwa1)
-Nexen=sum(newNexen1)
-Kia=sum(newKia1)
-LG=sum(newLG1)
-Lotte=sum(newLotte1)
-NC=sum(newNC1)
-KT=sum(newKT1)
-Samsung=sum(newSamsung1)
+
+SK = 0
+Doosan = 0
+Hanhwa = 0
+Nexen = 0
+Kia = 0
+LG = 0
+Lotte = 0
+NC = 0
+KT = 0
+Samsung = 0
+
 
 def click_button01():
     global j
@@ -143,6 +158,7 @@ def click_button01():
     Doosan+=165
     LG+=165
     Nexen+=165
+    calculation()
     if j==2:
        asdf.destroy()
 def click_button02():
@@ -150,6 +166,7 @@ def click_button02():
     global Lotte
     j+=1
     Lotte+=165
+    calculation()
     if j==2:
        asdf.destroy()
 def click_button03():
@@ -157,6 +174,7 @@ def click_button03():
     global Samsung
     j+=1
     Samsung+=165
+    calculation()
     if j==2:
        asdf.destroy()
 def click_button04():
@@ -164,6 +182,7 @@ def click_button04():
     global Hanhwa
     j+=1
     Hanhwa+=165
+    calculation()
     if j==2:
        asdf.destroy()
 def click_button05():
@@ -171,6 +190,7 @@ def click_button05():
     global SK
     j+=1
     SK+=165
+    calculation()
     if j==2:
        asdf.destroy()
 def click_button06():
@@ -178,6 +198,7 @@ def click_button06():
     global KT
     j+=1
     KT+=165
+    calculation()
     if j==2:
        asdf.destroy()
 def click_button07():
@@ -185,15 +206,41 @@ def click_button07():
     global Kia
     j+=1
     Kia+=165
+    calculation()
     if j==2:
        asdf.destroy()
+
 def click_button08():
     global j
     global NC
     j+=1
     NC+=165
+    calculation()
     if j==2:
        asdf.destroy()
+
+def calculation():
+    global SK
+    global Doosan
+    global Hanhwa
+    global Nexen
+    global Kia
+    global LG
+    global Lotte
+    global NC
+    global KT
+    global Samsung
+
+    SK=sum(newSK1)
+    Doosan=sum(newDoosan1)
+    Hanhwa=sum(newHanhwa1)
+    Nexen=sum(newNexen1)
+    Kia=sum(newKia1)
+    LG=sum(newLG1)
+    Lotte=sum(newLotte1)
+    NC=sum(newNC1)
+    KT=sum(newKT1)
+    Samsung=sum(newSamsung1)
 
 
 
